@@ -1,5 +1,31 @@
 # MongoDB Java - Morphia
 
+#### Consultas MongoDB:
+
+Query si elementos existen en arreglo:
+
+```
+db.getCollection('conversations').find({
+  "$and":[
+    {
+      members: {  
+        "$in": [
+          ObjectId("5ba84a28686d3e4988a57b64"),
+        ]
+      }
+    },
+    {
+      members: {
+        "$in": [
+          ObjectId("5ba84a28686d3e4988a57b65"),
+        ]
+      }
+    },   
+  ]
+})
+
+```
+
 ---
 
 Fuentes:

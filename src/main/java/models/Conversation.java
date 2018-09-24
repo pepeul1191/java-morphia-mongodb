@@ -15,6 +15,7 @@ public class Conversation {
     private List<Message> messages;
     private Date created;
     private Date updated;
+    private List<ObjectId> members;
 
     public Conversation() {
     }
@@ -33,6 +34,14 @@ public class Conversation {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+    
+    public List<ObjectId> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<ObjectId> members) {
+        this.members = members;
     }
 
     public Date getCreated() {
