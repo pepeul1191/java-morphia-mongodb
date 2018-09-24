@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -9,10 +10,12 @@ public class Message {
     @Id 
     private ObjectId id;
     private String content;
-    private ObjectId usuarioId;
+    private ObjectId userId;
+    private Date moment;
 
-    public Message(String content, String usuarioId) {
+    public Message(String content, String userId) {
         this.content = content;
-        this.usuarioId = new ObjectId(usuarioId);
+        this.userId = new ObjectId(userId);
+        this.moment = new Date();
     }    
 }
