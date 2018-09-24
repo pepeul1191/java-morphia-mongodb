@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
@@ -12,6 +13,8 @@ public class Conversation {
     private ObjectId id;
     @Embedded
     private List<Message> messages;
+    private Date created;
+    private Date updated;
 
     public Conversation() {
     }
@@ -30,5 +33,13 @@ public class Conversation {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated() {
+        this.created = new Date();
     }
 }
