@@ -1,5 +1,7 @@
 package configs;
 
+import com.mongodb.BasicDBList;
+import com.mongodb.DBCursor;
 import java.util.ArrayList;
 import java.util.List;
 import models.Conversation;
@@ -31,8 +33,8 @@ public class Gestion {
             messages.add(m3);
             // create members
             List<ObjectId> members = new ArrayList<>();
-            ObjectId mb1 = new ObjectId("5ba84a28686d3e4988a57b68");
-            ObjectId mb2 = new ObjectId("5ba84a28686d3e4988a57b69");
+            ObjectId mb1 = new ObjectId("5ba84a28686d3e4988a57b64");
+            ObjectId mb2 = new ObjectId("5ba84a28686d3e4988a57b65");
             members.add(mb1);
             members.add(mb2);
             //crear convesación
@@ -43,6 +45,18 @@ public class Gestion {
             db.getDatastore().save(c1);
             System.out.println("_id generado");
             System.out.println(c1.getId().toString());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void consultaFuncion(){
+        Database db = new Database();
+        try{
+            BasicDBList myCursor = (BasicDBList) db.getDatastore().getDB().eval("getConversacionFunction('5ba84a28686d3e4988a57b64', '5ba84a28686d3e4988a57b65')");
+            System.out.println("1 +++++++++++++++++++++++++++++++++");
+            System.out.println(myCursor.size());
+            System.out.println("2 +++++++++++++++++++++++++++++++++");
         }catch(Exception e){
             e.printStackTrace();
         }

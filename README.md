@@ -25,9 +25,12 @@ db.getCollection('conversations').find({
 })
 
 ```
+
+Función para devolver conversación en función a dos miembros:
+
 ```
 db.system.js.save({
-    _id: "echoFunction",
+    _id: "getConversacionFunction",
     value: function (usuario_id_1, usuario_id_2) {
         var doc = db.getCollection('conversations').find({
           "$and":[
@@ -51,6 +54,13 @@ db.system.js.save({
     }
 })
 ```
+
+Llamar a función:
+
+```
+db.eval("getConversacionFunction('5ba84a28686d3e4988a57b64', '5ba84a28686d3e4988a57b65')")
+```
+
 ---
 
 Fuentes:
