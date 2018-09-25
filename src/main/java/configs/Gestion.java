@@ -1,11 +1,11 @@
 package configs;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import models.Conversation;
 import models.Message;
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.query.Query;
 
 public class Gestion {
     public void insertarDocumentoSimple(){
@@ -41,6 +41,8 @@ public class Gestion {
             c1.setMembers(members);
             c1.setCreated();
             db.getDatastore().save(c1);
+            System.out.println("_id generado");
+            System.out.println(c1.getId().toString());
         }catch(Exception e){
             e.printStackTrace();
         }

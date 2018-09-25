@@ -25,7 +25,32 @@ db.getCollection('conversations').find({
 })
 
 ```
-
+```
+db.system.js.save({
+    _id: "echoFunction",
+    value: function (usuario_id_1, usuario_id_2) {
+        var doc = db.getCollection('conversations').find({
+          "$and":[
+            {
+              members: {  
+                "$in": [
+                  ObjectId(usuario_id_1),
+                ]
+              }
+            },
+            {
+              members: {
+                "$in": [
+                  ObjectId(usuario_id_2),
+                ]
+              }
+            },   
+          ]
+        }).toArray();
+        return doc;
+    }
+})
+```
 ---
 
 Fuentes:
