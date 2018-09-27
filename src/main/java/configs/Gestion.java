@@ -61,4 +61,17 @@ public class Gestion {
             e.printStackTrace();
         }
     }
+    
+    public void agregarMensaje(){
+        Database db = new Database();
+        try{
+            ObjectId conversationObjectId = new ObjectId("5baa80ef686d3e23830b8933");
+            Conversation c = db.getDatastore().find(Conversation.class).field("_id").equal(conversationObjectId).get();
+            Message m1 = new Message("nuevo mensaje 3", "5ba84a28686d3e4988a57b66");
+            c.getMessages().add(m1);
+            db.getDatastore().save(c);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
