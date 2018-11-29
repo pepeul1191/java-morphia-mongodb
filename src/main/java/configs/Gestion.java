@@ -2,7 +2,16 @@ package configs;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.DBCursor;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import models.Conversation;
 import models.Message;
@@ -73,5 +82,22 @@ public class Gestion {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public void fechas(int mes, int anio){
+        /*
+        https://stackoverflow.com/questions/9397203/last-day-of-month-calculation
+        */
+        //dateformat
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+        //first day of month
+        Calendar calendar = Calendar.getInstance();  
+        calendar.set(anio, mes - 1 , 1);
+        Date firstDayOfMonth = calendar.getTime();  
+        System.out.println("First Day of Month: " + sdf.format(firstDayOfMonth)); 
+        //last day of month
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
+        Date lastDayOfMonth = calendar.getTime();
+        System.out.println("Last Day of Month: " +  sdf.format(lastDayOfMonth)); 
     }
 }

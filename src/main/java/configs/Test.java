@@ -5,6 +5,7 @@ public class Test {
        Gestion g = new Gestion();
        //g.insertarDocumentoEmdebido();
        //g.consultaFuncion();
-       g.agregarMensaje();
+       //g.agregarMensaje();
+       g.fechas(2, 2021);
     }    
 }
